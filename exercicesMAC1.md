@@ -87,4 +87,7 @@ Recall    0.0  0.17 0.33 0.33 0.5  0.67 0.67 0.67 0.67 0.67
 Precision 0.0  0.5  0.67 0.5  0.6  0.66 0.57 0.5  0.44 0.4  
 F Measure 0.0  0.25 0.44 0.39 0.54 0.66 0.61 0.57 0.53 0.5  
 </pre>
-
+### b. What is the MAP of each system? Which has a higher MAP?
+Average precision for System1 : (0.2 + 0.33 + 0.42 + 0.5 + 0.55)/5 = 0.4  
+Average precision for System1 : (0.5 + 0.67 + 0.6 + 0.66)/4 = 0.6  
+Mean average precision : (0.4 + 0.6)/2 = 0.5
