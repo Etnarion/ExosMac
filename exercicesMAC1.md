@@ -37,16 +37,16 @@ Doc4: Computer Resources Shared Components
 #### D.1 What documents are retrieved, with the Boolean model, with the query “Computer AND NOT Components”?
 Doc1, Doc2.
 #### D.2 Compute the idf value of the terms “Computer” and “Components” (consider we have only these 4 documents in the collection).
-computer idf = Log10(N/df) = Log10(4/3) = 0.1249387366  
-components idf = Log10(N/df) = Log10(4/2) = 0.30102999566  
+computer idf = Log10(N/df) = Log10(4/3) = 0.12  
+components idf = Log10(N/df) = Log10(4/2) = 0.3  
 #### D.3 Compute the vector model representation of Doc4 using tf-idf weights (logarithmic tf* idf).
-Computer : (1+Log10(1))*Log10(4/3) = 0.1249387366  
-Resources : (1+Log10(1))*Log10(4/2) = 0.30102999566  
-Shared : (1+Log10(1))*Log10(4/3) = 0.1249387366  
-Components : (1+Log10(1))*Log10(4/2) = 0.30102999566  
+Computer : (1+Log10(1))*Log10(4/3) = 0.12  
+Resources : (1+Log10(1))*Log10(4/2) = 0.3  
+Shared : (1+Log10(1))*Log10(4/3) = 0.12  
+Components : (1+Log10(1))*Log10(4/2) = 0.3  
 Services : 0  
 Digital : 0  
-Doc4 = (0.1249387366, 0.30102999566, 0.1249387366, 0.30102999566, 0, 0)
+Doc4 = (0.1249387366, 0.3, 0.12, 0.3, 0, 0)
 #### D.4 Compute the vector model representation of the query “Computer Components” using only raw tf and no idf.
 query = (1, 0, 0, 1, 0, 0)
 #### D.5 Compute the similarity between the query “Computer Components” and Doc4 with the cosine similarity measure.
@@ -54,18 +54,20 @@ With raw tf only :
 CoCo: "Computer Components" query  
 Doc4: Doc4 document  
 |CoCo| = sqrt(1 + 0 + 0 + 1 + 0 + 0) = sqrt(2)  
-|Doc4| = sqrt(0.1249387366² + 0.30102999566² + 0.1249387366² + 0.30102999566² + 0 + 0) = 0.46093111457  
-normalized CoCo = (1/sqrt(2), 0, 0, 1/sqrt(2), 0, 0) = (0.70710678118, 0, 0, 0.70710678118, 0, 0)  
-normalized Doc4 = (0.1249387366/0.46093111457 + 0.30102999566/0.46093111457 + 0.1249387366/0.46093111457 + 0.30102999566/0.46093111457 + 0 + 0) = (0.27105728524, 0.65309107184, 0.27105728524, 0.65309107184, 0, 0)  
-cos(CoCo, Doc4) = 0.70710678118*0.27105728524 + 0 + 0 + 0.70710678118*0.65309107184 + 0 + 0 = 0.6534715701  
+|Doc4| = sqrt(0.12² + 0.3² + 0.12² + 0.3² + 0 + 0) = 0.46  
+normalized CoCo = (1/sqrt(2), 0, 0, 1/sqrt(2), 0, 0) = (0.7, 0, 0, 0.7, 0, 0)  
+normalized Doc4 = (0.12/0.46 + 0.3/0.46 + 0.12/0.46 + 0.3/0.46 + 0 + 0) = (0.27, 0.65, 0.27, 0.65, 0, 0)  
+cos(CoCo, Doc4) = 0.7*0.27 + 0 + 0 + 0.7*0.65 + 0 + 0 = 0.65  
 
 ### E. 
+<pre>
 |         |                Query                  |               Document              |  
 | word    | tf | wf | df      | idf   | qi=wf-idf | tf | wf  | di=normalized wf | qi*di |  
 |---------|----|----|---------|-------|-----------|----|-----|------------------|-------|  
 | digital | 1  | 1  | 10'000  | 1'000 | 1'000     | 1  | 1   | 1/1.92           | 520   |  
 | video   | 0  | 0  | 100'000 | 100   | 0         | 1  | 1   | 1/1.92           | 520   |  
 | cameras | 1  | 1  | 50'000  | 200   | 200       | 2  | 1.3 | 1.3/1.92         | 670   |  
+</pre>
   
 Final similarity score = 0.7*0.52 + 0 + 0.7*0.67 ~= 0.83
 
@@ -74,6 +76,7 @@ Final similarity score = 0.7*0.52 + 0 + 0.7*0.67 ~= 0.83
 System1 NNNNR RRRRN  
 System2 NRRNR RNNNN  
 ### a. What is the Precision, Recall, and F-Measure of each system for the top 10 documents? Comment on your results.  
+<pre>
 System1    N    N    N    N    R    R    R    R    R    N
 Recall    0.0  0.0  0.0  0.0  0.17 0.33 0.5  0.67 0.83 0.83  
 Precision 0.0  0.0  0.0  0.0  0.2  0.33 0.42 0.5  0.55 0.5  
@@ -83,5 +86,5 @@ System2    N    R    R    N    R    R    N    N    N    N
 Recall    0.0  0.17 0.33 0.33 0.5  0.67 0.67 0.67 0.67 0.67  
 Precision 0.0  0.5  0.67 0.5  0.6  0.66 0.57 0.5  0.44 0.4  
 F Measure 0.0  0.25	0.44 0.39 0.54 0.66 0.61 0.57 0.53 0.5  
-  
+</pre>
 
