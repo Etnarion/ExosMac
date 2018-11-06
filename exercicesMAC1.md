@@ -69,7 +69,7 @@ cos(CoCo, Doc4) = 0.7*0.27 + 0 + 0 + 0.7*0.65 + 0 + 0 = 0.65
 | cameras | 1  | 1  | 50'000  | 200   | 200       | 2  | 1.3 | 1.3/1.92         | 670   |  
 </pre>
   
-Final similarity score = 0.7*0.52 + 0 + 0.7*0.67 ~= 0.83
+Final similarity score = 0.7 * 0.52 + 0 + 0.7 * 0.67 ~= 0.83
 
 ## Part 2: Evaluation in Information Retrieval
 ### F. 
