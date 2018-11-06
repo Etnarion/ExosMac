@@ -27,7 +27,7 @@ Intersect(x, y)
             
 ```
 ### C. What is the idf of a term that occurs in every document? Compare this with the use of stop word lists.
-idf = log_{10}(N/N) = log_{10}(1) = 0  
+idf = log10(N/N) = log10(1) = 0  
 A stop word list
 ### D.
 Consider the following collection of four documents:
@@ -38,13 +38,13 @@ Doc4: Computer Resources Shared Components
 #### D.1 What documents are retrieved, with the Boolean model, with the query “Computer AND NOT Components”?
 Doc1, Doc2.
 #### D.2 Compute the idf value of the terms “Computer” and “Components” (consider we have only these 4 documents in the collection).
-computer idf = Log_{10}(N/df) = Log_{10}(4/3) = 0.1249387366
-components idf = Log_{10}(N/df) = Log_{10}(4/2) = 0.30102999566
+computer idf = Log10(N/df) = Log10(4/3) = 0.1249387366
+components idf = Log10(N/df) = Log10(4/2) = 0.30102999566
 #### D.3 Compute the vector model representation of Doc4 using tf-idf weights (logarithmic tf* idf).
-Computer : (1+Log_{10}(1/4))*Log_{10}(4/3) = 0.04971812192
-Resources : (1+Log_{10}(1/4))*Log_{10}(4/2) = 0.11979187908
-Shared : (1+Log_{10}(1/4))*Log_{10}(4/3) = 0.04971812192
-Components : (1+Log_{10}(1/4))*Log_{10}(4/2) = 0.11979187908
-Score(q,d) = /sum_{t∈q∩d} tf-idf_{t,d} = 0.04971812192 + 0.11979187908 + 0.04971812192 + 0.11979187908 = 0.339020002
+Computer : (1+Log10(1/4))*Log10(4/3) = 0.04971812192
+Resources : (1+Log10(1/4))*Log10(4/2) = 0.11979187908
+Shared : (1+Log10(1/4))*Log10(4/3) = 0.04971812192
+Components : (1+Log10(1/4))*Log10(4/2) = 0.11979187908
+Score(q,d) = 0.04971812192 + 0.11979187908 + 0.04971812192 + 0.11979187908 = 0.339020002
 #### D.4 Compute the vector model representation of the query “Computer Components” using only raw tf and no idf.
 
