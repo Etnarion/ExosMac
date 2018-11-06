@@ -41,10 +41,10 @@ Doc1, Doc2.
 computer idf = Log10(N/df) = Log10(4/3) = 0.1249387366
 components idf = Log10(N/df) = Log10(4/2) = 0.30102999566
 #### D.3 Compute the vector model representation of Doc4 using tf-idf weights (logarithmic tf* idf).
-Computer : (1+Log10(1/4))*Log10(4/3) = 0.04971812192
-Resources : (1+Log10(1/4))*Log10(4/2) = 0.11979187908
-Shared : (1+Log10(1/4))*Log10(4/3) = 0.04971812192
-Components : (1+Log10(1/4))*Log10(4/2) = 0.11979187908
+Computer : (1+Log10(1/4))*Log10(4/3) = 0.04971812192  
+Resources : (1+Log10(1/4))*Log10(4/2) = 0.11979187908  
+Shared : (1+Log10(1/4))*Log10(4/3) = 0.04971812192  
+Components : (1+Log10(1/4))*Log10(4/2) = 0.11979187908  
 Score(q,d) = 0.04971812192 + 0.11979187908 + 0.04971812192 + 0.11979187908 = 0.339020002
 #### D.4 Compute the vector model representation of the query “Computer Components” using only raw tf and no idf.
 
