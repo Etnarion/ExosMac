@@ -28,7 +28,7 @@ Intersect(x, y)
 ```
 ### C. What is the idf of a term that occurs in every document? Compare this with the use of stop word lists.
 idf = log10(N/N) = log10(1) = 0  
-A stop word list
+A stop word list prevents us to compute a large number of useless words.
 ### D. Consider the following collection of four documents:  
 Doc1: Shared Computer Resources  
 Doc2: Computer Services  
@@ -87,7 +87,38 @@ Recall    0.0  0.17 0.33 0.33 0.5  0.67 0.67 0.67 0.67 0.67
 Precision 0.0  0.5  0.67 0.5  0.6  0.66 0.57 0.5  0.44 0.4  
 F Measure 0.0  0.25 0.44 0.39 0.54 0.66 0.61 0.57 0.53 0.5  
 </pre>
+System1 barely raise its precision above the 0.5 bar. It has a higher number of relevant results but they are poorly ranked. The top 4 results aren't relevant.  
+System2 has less relevant results than System 1 but rank them better
 ### b. What is the MAP of each system? Which has a higher MAP?
 Average precision for System1 : (0.2 + 0.33 + 0.42 + 0.5 + 0.55)/5 = 0.4  
-Average precision for System1 : (0.5 + 0.67 + 0.6 + 0.66)/4 = 0.6  
-Mean average precision : (0.4 + 0.6)/2 = 0.5
+Average precision for System2 : (0.5 + 0.67 + 0.6 + 0.66)/4 = 0.6  
+Mean average precision : (0.4 + 0.6)/2 = 0.5  
+### c. Does the result in point b intuitively make sense? What does it say about what is important in getting a good MAP score?
+It doesn't, when we see the relevant results count we are inclined to say that System1 is more precise. It seems like the important factor is that the results must be well ranked. (More relevant results at higher ranks)
+### d. What is the R-precision of each system? (Does  it rank the systems the same as MAP?)
+System1 R-precision : 1/3  
+System2 R-precision : 2/3  
+## G. 
+RRNNN NNNRN RNNNR NNNNR  
+### a. What is the precision of the system on the top 20? 
+### b. What is the F-Measure on the top 20? 
+<pre>
+           R    R    N    N    N    N    N    N    R    N    R    N    N    N    R    N    N    N    N    R
+Recall    0.12 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.37 0.37 0.5  0.5  0.5  0.5  0.62 0.62 0.62 0.62 0.62 0.75 
+Precision 1.0  1.0  0.67 0.5  0.4  0.33 0.28 0.25 0.33 0.3  0.36 0.33 0.3  0.28 0.33 0.31 0.29 0.27 0.26 0.3
+F Measure 0.21 0.40 0.36 0.33 0.31 0.28 0.26 0.25 0.35 0.33 0.42 0.40 0.38 0.36 0.43 0.41 0.40 0.38 0.37 0.43
+</pre>
+
+### c. What is the uninterpolated precision of the system at 25% recall?
+1
+### d. What is the interpolated precision at 33% recall?
+0.3
+### e. Assume that these 20 documents are the complete result set of the system. What is the MAP for the query?
+(1 + 1 + 0.33 + 0.36 + 0.33 + 0.3)/6 = 0.55
+### f. What is the largest possible MAP that this system could have?
+1
+### g. What is the smallest possible MAP that this system could have?
+0
+### h. In a set of experiments, only the top 20 results are evaluated by hand. The result in (e) is used to approximate the range (f) to (g). For this example, how large  (in  absolute  terms)  can  the  error  for  the  MAP  be  by  calculating  (e) instead of (f) and (g) for this query?
+1 - 0.55 -> 0.45
+
